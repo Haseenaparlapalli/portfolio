@@ -7,92 +7,135 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-  body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #36dee1;
-      text-align: center;
-      color: #333;
-    }
-    .header {
-      background-image: url('');
-      background-size: cover;
-      background-position: center;
-      padding: 50px 20px;
-      position: relative;
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-      padding:40px;
+  /* Reset and basic */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-    }
+body {
+  overflow-x: hidden;
+}
 
-    h1 {
-      margin-top: 80px;
-      font-size: 32px;
-      color: white;
-    }
-    .subtitle {
-      font-size: 16px;
-      color: rgb(236, 13, 240);
-      margin-bottom: 20px;
+.home-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
 
-    }
-    .social-icons {
-      margin-top: 20px;
-    }
-    .social-icons a {
-      margin: 0 10px;
-      color: rgb(10, 188, 232);
-      font-size: 24px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .social-icons a:hover {
-      color: #ef0a8c;
-    }
-    .links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 20px;
-      z-index:2;
-      gap:20px;
-    }
-    .circle-button {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: white;
-      margin-top: -30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    .circle-button:hover {
-      transform: scale(1.05);
-    }
-    .hire-me {
-      margin: 30px auto;
-      padding: 10px 20px;
-      font-size: 18px;
-      background-color:rgb(234, 8, 234);
-      color: rgb(0, 0, 0);
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .hire-me:hover {
-      background-color: #06c8f4;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 12px;
-    }
-  
+/* Background Video */
+#bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: -1;
+}
+
+/* Content */
+.header-content {
+  max-width: 700px;
+  animation: fadeInUp 1s ease;
+}
+
+.main-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin: 1rem 0 2rem;
+  color: #101010;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-bottom: 2rem;
+}
+.social-icons a {
+  margin: 0 10px;
+  font-size: 1.5rem;
+  color: rgb(230, 11, 135);
+  transition: color 0.3s;
+}
+.social-icons a:hover {
+  color: #00ffd5;
+}
+
+/* Navigation Buttons */
+.links {
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.circle-button {
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  color: rgb(0, 0, 0);
+}
+.circle-button:hover {
+  background: rgb(49, 185, 195);
+  color: #1f1c2c;
+}
+
+/* Hire Me Button */
+.hire-me {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  background: #00ffd5;
+  color: #1f1c2c;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.hire-me:hover {
+  background: #00c7a0;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 
 
 
@@ -164,10 +207,7 @@
 
 
 
-    #home {
-      background:linear-gradient(to right,#d1c4e9, #b2ebf2)
-
-    }
+  
 
     #projects {
       background: #D8BFD8;
@@ -323,6 +363,27 @@
     .contact-text {
       text-align: center;
     }
+
+    .alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4BB543; 
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  font-weight: bold;
+  z-index: 1000;
+  transition: opacity 0.4s ease;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
     .contact-text h2 {
       color: #7a38f5;
       margin-bottom: 1rem;
@@ -446,33 +507,53 @@ div{
     </div>
   </nav>
   
+  
+    <section id="home" class="home-section">
+      <!-- Background Video -->
+      <video autoplay muted loop id="bg-video">
+        <source src="https://media.istockphoto.com/id/1193665457/video/modern-day-business-would-not-exist-without-technology.mp4?s=mp4-640x640-is&k=20&c=MZz5rAaOkmQniHCQDA8bKO_8FIiKrJwcgsmcNWzZwiA=" type="video/mp4" />
 
-  <section id="home">
-    <div class="header">
-      <h1>Haseenaparlapalli</h1>
-      <div class="subtitle">I am a web designer, to create and website design, front-end design, and many more.</div>
-      <div class="social-icons">
-        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="https://www.linkedin.com/feed/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        Your browser does not support HTML5 video.
+      </video>
+  
+      <!-- Overlay -->
+      <div class="video-overlay"></div>
+  
+      <!-- Main Content -->
+      <div class="header-content">
+        <h1 class="main-title">Haseenaparlapalli</h1>
+        <p class="subtitle">
+          I'm a <strong>Web Designer</strong> who creates beautiful, responsive websites with clean front-end design.
+        </p>
+  
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/feed/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+  
+        <div class="links">
+          <div class="circle-button" onclick="document.getElementById('home').scrollIntoView({ behavior: 'smooth' })">HOME</div>
+          <div class="circle-button" onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })">PROJECTS</div>
+          <div class="circle-button" onclick="document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })">SKILLS</div>
+          <div class="circle-button" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">CONTACT</div>
+          <div class="circle-button" onclick="document.getElementById('About').scrollIntoView({ behavior: 'smooth' })">ABOUT</div>
+        </div>
+  
+        <button class="hire-me" onclick="openResume()">Hire Me</button>
       </div>
-    </div>
-    <div class="links">
-    <div class="circle-button" onclick="document.getElementById('Home').scrollIntoView({ behavior: 'smooth' })">HOME</div>
-    <div class="circle-button" onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })">PROJECTS</div>
-    <div class="circle-button" onclick="document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })">SKILLS</div>
-    <div class="circle-button" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">CONTACT</div>
-    <div class="circle-button" onclick="document.getElementById('About').scrollIntoView({ behavior: 'smooth' })">ABOUT</div>
-  </div>
-  <button class="hire-me" onclick="openResume()">Hire Me</button>
-
-  <script>
-    function openResume() {
-      window.open('Parlapalli Haseena.pdf', '_blank');
-    }
-  </script>
+  
+    <script>
+      function openResume() {
+        window.open('Parlapalli Haseena.pdf', '_blank');
+      }
+    </script>
+  
+  </body>
+  </html>
+  
   
   
 </section>
@@ -625,7 +706,22 @@ div{
       </form>
 
     </div>
+    <div id="alert" class="alert hidden">Sent successfully!</div>
+
   </section>
+
+  <script>
+  document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    const alert = document.getElementById("alert");
+    alert.classList.remove("hidden");
+    setTimeout(() => {
+      alert.classList.add("hidden");
+    }, 5000);
+  });
+</script>
+
+  </script>
 
   <script>
     function toggleMenu() {
